@@ -80,16 +80,14 @@ if 'current_data' not in st.session_state:
 
 def main():
     df = None
-    # Line 82 ke neechay ye add karein:
-    if 'fraud_detector' not in st.session_state:
-        from models import FraudDetectionModels
+    
+    # Model initialization logic
+    from models import FraudDetectionModels
+    if 'fraud_detector' not in st.session_state or st.session_state.fraud_detector is None:
         st.session_state.fraud_detector = FraudDetectionModels()
     
-    # Extra safety check
-    if st.session_state.fraud_detector is None:
-        from models import FraudDetectionModels
-        st.session_state.fraud_detector = FraudDetectionModels()
-    # Header
+    # Header (Inse pehle 4 spaces lazmi honi chahiye)
+    st.markdown('<h1 class="main-header">💰 Credit Card Fraud Detection System</h1>', unsafe_allow_html=True)
     st.markdown('<h1 class="main-header">💰 Credit Card Fraud Detection System</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #6B7280;">Advanced CNN & Machine Learning Models for Real-time Fraud Detection</p>', unsafe_allow_html=True)
     
