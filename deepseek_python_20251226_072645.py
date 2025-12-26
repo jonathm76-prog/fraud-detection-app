@@ -79,6 +79,7 @@ if 'current_data' not in st.session_state:
     st.session_state.current_data = None
 
 def main():
+    df = None
     # Header
     st.markdown('<h1 class="main-header">💰 Credit Card Fraud Detection System</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #6B7280;">Advanced CNN & Machine Learning Models for Real-time Fraud Detection</p>', unsafe_allow_html=True)
