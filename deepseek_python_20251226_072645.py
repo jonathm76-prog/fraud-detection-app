@@ -98,10 +98,11 @@ def main():
         if data_source == "📁 Upload CSV":
             uploaded_file = st.file_uploader("Upload credit card data (CSV)", type=['csv'])
             if uploaded_file:
-               df = pd.read_csv(uploaded_file)
-            st.session_state.current_data = df
-            df.to_csv("temp_data.csv", index=False) # Ye line error khatam karegi
-            st.success(f"Data loaded: {df.shape[0]} rows x {df.shape[1]} columns")
+                   df = pd.read_csv(uploaded_file)
+            if df is not None:
+                   df.to_csv("temp_data.csv", index=False)
+                   st.success(f"Data loaded: {df.shape[0]} rows")
+                   st.success(f"Data loaded: {df.shape[0]} rows x {df.shape[1]} columns")
         else:
             if st.button("Generate Sample Data"):
                 with st.spinner("Generating synthetic data..."):
