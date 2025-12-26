@@ -81,7 +81,7 @@ if 'current_data' not in st.session_state:
 def main():
     df = None
     # Line 82 ke neechay ye add karein:
-    if 'fraud_detector' not in st.session_state:
+    if 'fraud_detector' not in st.session_state or st.session_state.fraud_detector is None:
         from models import FraudDetectionModels
         st.session_state.fraud_detector = FraudDetectionModels()
     # Header
