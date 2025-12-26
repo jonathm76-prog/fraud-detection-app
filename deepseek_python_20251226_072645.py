@@ -79,17 +79,16 @@ if 'current_data' not in st.session_state:
     st.session_state.current_data = None
 
 def main():
+    # 1. Sab se pehle df ko khali define karein
     df = None
     
-    # Model initialization logic
+    # 2. Model class ko load karein (Ye CSV aur Sample dono ke liye zaroori hai)
     from models import FraudDetectionModels
     if 'fraud_detector' not in st.session_state or st.session_state.fraud_detector is None:
         st.session_state.fraud_detector = FraudDetectionModels()
     
-    # Header (Inse pehle 4 spaces lazmi honi chahiye)
+    # 3. Header (Spaces ka dhyan rakhein)
     st.markdown('<h1 class="main-header">💰 Credit Card Fraud Detection System</h1>', unsafe_allow_html=True)
-    st.markdown('<h1 class="main-header">💰 Credit Card Fraud Detection System</h1>', unsafe_allow_html=True)
-    st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #6B7280;">Advanced CNN & Machine Learning Models for Real-time Fraud Detection</p>', unsafe_allow_html=True)
     
     # Sidebar
     with st.sidebar:
